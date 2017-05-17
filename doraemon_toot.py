@@ -5,12 +5,20 @@ import random
 import linecache
 from mastodon import Mastodon
 
+#toot準備
 mastodon = Mastodon(
         client_id="cred.txt", 
         access_token="auth.txt",
         api_base_url = "https://friends.nico") #インスタンス
-rand = random.randint(1,1945)
-target_line = linecache.getline('tool_list.txt', rand)
-linecache.clearcache() 
-mastodon.toot(target_line) #ここを変える
 
+#1~2309の乱数生成
+rand = random.randint(1,2309)
+
+#変数に道具or性器を代入
+target_line = linecache.getline('tool_list.txt', rand)
+
+#キャッシュをクリア
+linecache.clearcache() 
+
+#toot
+mastodon.toot(target_line)
